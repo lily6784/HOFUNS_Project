@@ -71,7 +71,11 @@ http://218.250.236.203/login.php
     php -S localhost:8000
    ```
 
-3. **Access your PHP file in a browser:**
+3. **Run PHP file:**
+   ```
+    php login.php
+   ```
+4. **Access your PHP file in a browser:**
 
    ```php
    http://localhost:8000/login.php
