@@ -44,7 +44,7 @@ http://218.250.236.203/login.php
    psql -U postgres
    ```
 
-4. **CREATE ROLE root WITH LOGIN PASSWORD '12345678';**
+4. **CREATE ROLE root WITH LOGIN PASSWORD '12345678'**
 
    ```sql
    CREATE ROLE root WITH LOGIN PASSWORD '12345678';
