@@ -1,8 +1,8 @@
-# Installation Guide for HOFUNS_Project  on macOS
+# Installation Guide for HOFUNS_Project
 
 ## Overview
 
-This guide provides step-by-step instructions for installing HOFUNS_Project on macOS.
+This guide provides step-by-step instructions for installing HOFUNS_Project.
 
 
 
