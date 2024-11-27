@@ -6,27 +6,26 @@ try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 查询所有用户
+ 
     function getAllUsers($pdo) {
         $stmt = $pdo->query('SELECT * FROM "8500_HKMU_G13"."USERS"');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 查询在职用户
+
     function getActiveUsers($pdo) {
         $stmt = $pdo->prepare('SELECT * FROM "8500_HKMU_G13"."USERS" WHERE status_inactive = FALSE');
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 查询离职用户
+
     function getInactiveUsers($pdo) {
         $stmt = $pdo->prepare('SELECT * FROM "8500_HKMU_G13"."USERS" WHERE status_inactive = TRUE');
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 新增用户
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_user'])) {
         $name = trim($_POST['name']);
         $username = trim($_POST['username']);
@@ -39,7 +38,7 @@ try {
         echo "Successfully new staff added！";
     }
 
-    // 标记用户离职
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark_inactive'])) {
         $userId = $_POST['id'];
         $stmt = $pdo->prepare('UPDATE "8500_HKMU_G13"."USERS" SET status_inactive = TRUE WHERE id = :id');
@@ -47,7 +46,6 @@ try {
         echo "The staff is inactive！";
     }
 
-    // 离职用户回归
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark_active'])) {
         $userId = $_POST['id'];
         $stmt = $pdo->prepare('UPDATE "8500_HKMU_G13"."USERS" SET status_inactive = FALSE WHERE id = :id');
@@ -55,7 +53,6 @@ try {
         echo "The staff is back！";
     }
 
-    // 更改用户密码
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['change_password'])) {
         $userId = $_POST['id'];
         $newPassword = password_hash($_POST['new_password'], PASSWORD_BCRYPT);
@@ -64,7 +61,6 @@ try {
         echo "password is updated！";
     }
 
-    // 查询库存
     function getAllStock($pdo) {
         $stmt = $pdo->query('SELECT 
     item_name, 
@@ -82,7 +78,6 @@ GROUP BY
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 新增库存
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_stock'])) {
         $itemName = trim($_POST['item_name']);
         $quantity = intval($_POST['quantity']);

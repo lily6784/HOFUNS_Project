@@ -6,7 +6,6 @@ try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 查阅当前库存
     function getCurrentStock($pdo) {
         $stmt = $pdo->query('SELECT 
         item_name, 
@@ -25,7 +24,6 @@ try {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 查阅售出情况
     function getSoldRecords($pdo) {
         $stmt = $pdo->query('SELECT 
         item_name, 
@@ -44,7 +42,6 @@ try {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 查阅退货情况
     function getReturnedRecords($pdo) {
         $stmt = $pdo->query('SELECT 
         item_name, 
@@ -63,7 +60,6 @@ try {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 新增售出
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sold_quantity'])) {
         $solditemName = trim($_POST['sold_item_name']);
         $itemquantity = trim($_POST['sold_quantity']);
@@ -91,7 +87,6 @@ try {
         echo "Sold！";
     }
     
-    // 新增退货
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['returned_quantity'])) {
         $returneditemName = trim($_POST['returned_item_name']);
         $itemquantity = trim($_POST['returned_quantity']);
@@ -121,7 +116,7 @@ try {
     
 
 } catch (PDOException $e) {
-    echo "连接失败：" . htmlspecialchars($e->getMessage());
+    echo "connection failed" . htmlspecialchars($e->getMessage());
 }
 
 ?>

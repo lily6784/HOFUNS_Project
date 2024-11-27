@@ -7,7 +7,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        // 查询库存
         function getCurrentStock($pdo) {
             $stmt = $pdo->query('SELECT 
         item_name, 
@@ -25,7 +24,6 @@ try {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
-    // 查阅报废记录
     function getScrappedRecords($pdo) {
         $stmt = $pdo->query('
             SELECT item_name,
@@ -37,7 +35,6 @@ try {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 新增库存
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_stock'])) {
         $itemName = trim($_POST['item_name']);
         $quantity = intval($_POST['quantity']);
@@ -50,7 +47,6 @@ try {
         echo "items sucessfully added！";
     }
 
-    // 新增报废
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['scrapped_quantity'])) {
         $scrappeditemName = trim($_POST['scrapped_item_name']);
         $itemquantity = trim($_POST['scrapped_quantity']);
@@ -80,7 +76,7 @@ try {
     
 
 } catch (PDOException $e) {
-    echo "连接失败：" . htmlspecialchars($e->getMessage());
+    echo "connection failed" . htmlspecialchars($e->getMessage());
 }
 
 ?>
