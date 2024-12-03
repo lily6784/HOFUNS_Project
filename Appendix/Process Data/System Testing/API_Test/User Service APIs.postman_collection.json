@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "6583d28c-da3d-49c8-ae13-b2e518956359",
+		"name": "User Service APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39832093"
+	},
+	"item": [
+		{
+			"name": "AddNewStaff",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "MarkStaffAsInactive",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

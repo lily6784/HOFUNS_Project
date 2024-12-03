@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "beeb68c9-4d82-4c9a-9c76-e2f10c39ce90",
+		"name": "Inventory Service APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39832093"
+	},
+	"item": [
+		{
+			"name": "AddItem",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteItem",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ItemQuantityInvalid",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
